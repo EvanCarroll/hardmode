@@ -26,10 +26,15 @@ if !exists('g:HardMode_easymodeMsg')
     let g:HardMode_easymodeMsg = "You are weak..."
 end
 
-" Only echo if g:HardMode_echo = 1
 fun! HardModeEcho(message)
-    if g:HardMode_echo
-        echo a:message
+    " Some plugins create normal buffers and change their buftype later.
+    " Disable hardmode in these buffers on the first key press.
+    if !empty(&buftype)
+        call s:Easy(1)
+    else
+        if g:HardMode_echo
+            echo a:message
+        end
     end
 endfun
 
