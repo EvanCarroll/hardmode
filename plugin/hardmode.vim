@@ -71,31 +71,26 @@ endfun
 
 fun! Backspace(enable)
 
-    let l:bs = a:enable ? '0' : 'indent,eol,start'
+    let l:bs = a:enable ? 'indent,eol,start' : 0
     execute 'set backspace='. l:bs
 
 endfun
 
-fun! s:Easy(enable)
-
-    call Arrows(a:enable)
-
-    if g:HardMode_level != 'wannabe'
-        call Letters(a:enable)
-        call Backspace(a:enable)
-    end
-
-    let g:HardMode_currentMode = a:enable ? 'easy' : 'hard'
-
-endfun
-
 fun! HardMode()
-    call s:Easy(0)
+    call Arrows(0)
+    if g:HardMode_level != 'wannabe'
+        call Letters(0)
+        call Backspace(0)
+    end
+    let g:HardMode_currentMode = 'hard'
     call HardModeEcho(g:HardMode_hardmodeMsg)
 endfun
 
 fun! EasyMode()
-    call s:Easy(1)
+    call Arrows(1)
+    call Letters(1)
+    call Backspace(1)
+    let g:HardMode_currentMode = 'easy'
     call HardModeEcho(g:HardMode_easymodeMsg)
 endfun
 
