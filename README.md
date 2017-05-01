@@ -47,7 +47,9 @@ Once help tags have been generated, you can view the manual with
 Project Authors
 ---------------
 
-[Matt Parrott](https://github.com/wikitopian) and [Xeross](https://github.com/xeross)
+* [Matt Parrott](https://github.com/wikitopian)
+* [Xeross](https://github.com/xeross)
+* [Evan Carroll](https://github.com/EvanCarroll)
 
 License
 -------
