@@ -71,8 +71,9 @@ endfun
 
 fun! Backspace(enable)
 
-    let l:bs = a:enable ? 'indent,eol,start' : 0
-    execute 'set backspace='. l:bs
+    "let l:bs = a:enable ? 'indent,eol,start' : 0
+    "execute 'set backspace='. l:bs
+    call s:SafeMap(['<BS>'], 'niv', a:enable)
 
 endfun
 
